@@ -1,0 +1,10 @@
+{
+  "_note": "Starter alias table for speaker counting only. Built from labels seen in the parsed screenplays; every merge below is an ASSUMPTION to be approved by an editor. low_confidence_episodes marks links the files do not confirm in that episode.",
+  "JULIANA": {"aliases": ["LADY JULIANA"]},
+  "GERALD": {"aliases": ["THE FORMER GROOM"]},
+  "CLARISSA": {"aliases": ["LADY IN GOLD GOWN", "LADY CLARISSA"]},
+  "ALEXANDER": {"aliases": ["MYSTERIOUS BEARDED MAN", "THE BEARDED STRANGER"]},
+  "RUPERT": {"aliases": ["BLOND NOBLEMAN"], "low_confidence_episodes": {"BLOND NOBLEMAN": [2, 9]}},
+  "CATHERINE": {"aliases": ["LADY CATHERINE"]},
+  "ALEXANDER'S MOTHER": {"aliases": ["DOWAGER DUCHESS"]}
+}

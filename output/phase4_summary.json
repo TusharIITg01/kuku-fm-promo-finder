@@ -1,0 +1,83 @@
+{
+  "total": 162,
+  "passed": 80,
+  "rejected": 82,
+  "pass_rate": 0.4938,
+  "top_n_requested": 20,
+  "top_n_selected": 20,
+  "overlap_threshold": 0.5,
+  "overlap_pairs": 2,
+  "suppressed_during_selection": 0,
+  "batch_counts": {
+    "batch_01": {
+      "total": 10,
+      "passed": 3
+    },
+    "batch_02": {
+      "total": 10,
+      "passed": 4
+    },
+    "batch_03": {
+      "total": 10,
+      "passed": 4
+    },
+    "batch_04": {
+      "total": 10,
+      "passed": 6
+    },
+    "batch_05": {
+      "total": 10,
+      "passed": 7
+    },
+    "batch_06": {
+      "total": 10,
+      "passed": 3
+    },
+    "batch_07": {
+      "total": 10,
+      "passed": 5
+    },
+    "batch_08": {
+      "total": 10,
+      "passed": 2
+    },
+    "batch_09": {
+      "total": 10,
+      "passed": 5
+    },
+    "batch_10": {
+      "total": 10,
+      "passed": 8
+    },
+    "batch_11": {
+      "total": 10,
+      "passed": 5
+    },
+    "batch_12": {
+      "total": 10,
+      "passed": 6
+    },
+    "batch_13": {
+      "total": 10,
+      "passed": 5
+    },
+    "batch_14": {
+      "total": 10,
+      "passed": 4
+    },
+    "batch_15": {
+      "total": 10,
+      "passed": 7
+    },
+    "batch_16": {
+      "total": 10,
+      "passed": 6
+    },
+    "batch_17": {
+      "total": 2,
+      "passed": 0
+    }
+  },
+  "validation_errors": [],
+  "video_verified": false
+}

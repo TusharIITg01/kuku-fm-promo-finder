@@ -1,34 +1,39 @@
-# Kuku FM — Promo Finder (Problem 1)
+# Kuku FM Promo Finder — Problem 1
 
-Screenplay-based promo candidate ranking for *I Married a Broken Soldier. He was a Duke*.
+Screenplay-based promo discovery for *I Married a Broken Soldier. He was a Duke*.
 
-## Status
+## Quick start
 
-The ranking prototype is committed here. The **complete 46-file reproducible package** (including 17 evaluation batches, derived candidate data, full output tables, and the two-page PDF) has been generated and **tested locally**, but has **not yet been uploaded to this repository**. Do not use this GitHub link as the final submission until the complete package is uploaded.
-
-## Ranking
-
-The script `rank_candidates.py` accepts the Phase 2 `promo_candidates.json` and 17 `batch_XX_response.json` evaluation files:
+Requires Python 3.9+; no external dependencies.
 
 ```bash
-python rank_candidates.py --candidates data/promo_candidates.json --evaluations evaluations --output outputs
+python build_phase4.py
 ```
 
-It validates IDs and score ranges, applies four editorial quality gates, computes a weighted score (hook 25%, cliffhanger 25%, clarity 25%, emotion 15%, coherence 10%), and selects a shortlist with overlap suppression.
+The command reads six input files in `inputs/`, validates 162 candidates and 17 batches of evaluations, and recreates the full ranking under `output/`. It does **not** call Claude live: the human/Claude-assisted evaluations are frozen in the supplied JSON.
 
-## Verified full-pipeline results (local)
+## Pipeline
 
-- 50 episodes parsed
-- 162 candidates evaluated: 80 PASS, 82 REJECT
-- Top 20 shortlisted
-- Zero Phase 4 validation errors
-- Rebuilt successfully with Python 3 standard library
-- Video verification pending
+1. `src/parse_screenplays.py` extracts screenplay events and timestamps from original screenplay input.
+2. `src/generate_candidates.py` creates 20–60-second contiguous clip candidates with 15-second lookahead.
+3. `evaluations/` holds the calibrated Claude-assisted evaluations for all 162 candidates.
+4. `build_phase4.py` validates IDs/gates/scores, ranks candidates, and selects non-overlapping Top 20.
+5. `outputs/` contains raw results, eligible clips, Top 20 editorial review, and Top 10 showcase.
 
-## Data and copyright
+## Reproducibility
 
-The original screenplay is third-party assessment material. Keep this repository **private** until Kuku FM permits redistribution. The complete local package contains derived screenplay text and should also be treated as confidential.
+The `inputs/` folder is the authoritative, self-contained input for the ranking script. `data/` provides extracted candidate records for inspection. Run `python build_phase4.py` from the repository root. The script writes to `output/` (generated).
 
-## Known editorial issue
+## Results
 
-Candidate C015-01 has evidence that falls outside its proposed clip window; review manually before use. Scores are editorial screenplay assessments, not observed ad-performance metrics.
+- 50 episodes, 162 generated/evaluated clips
+- 80 PASS and 82 REJECT
+- 20 non-overlapping shortlisted clips, plus editorial Top 10
+
+## Limitations and data permissions
+
+All timings and quality assessments are based on screenplay text; final clips **have not been checked against video**. `C015-01` has a timestamp/evidence inconsistency and needs manual review. The source screenplay is not included in this repo; only derived records are present. Do not make the repository public or redistribute screenplay content without Kuku FM permission.
+
+## Submission
+
+See `docs/Kuku_FM_Solution_2page.pdf` for the two-page solution summary. Repository: https://github.com/TusharIITg01/kuku-fm-promo-finder
